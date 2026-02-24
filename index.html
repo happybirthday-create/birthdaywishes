@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HAPPY BIRTHDAY KANUUU!! 🎂🎉</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+
+        /* Background Image Added */
+        background:
+            linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+            url("bg.jpg") no-repeat center center/cover;
+
+        text-align: center;
+        color: white;
+        overflow-x: hidden;
+    }
+
+    .container {
+        padding: 50px 20px;
+    }
+
+    h1 {
+        font-size: 3rem;
+        animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+        from { text-shadow: 0 0 10px #fff; }
+        to { text-shadow: 0 0 25px #ff4da6; }
+    }
+
+    /* PHOTO GRID */
+    .photo-gallery {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        justify-items: center;
+        margin: 30px auto;
+        max-width: 500px;
+    }
+
+    .photo {
+        width: 170px;
+        height: 170px;
+        border-radius: 20px;
+        border: 5px solid white;
+        object-fit: cover;
+        box-shadow: 0 0 20px rgba(255,255,255,0.7);
+        transition: 0.3s;
+    }
+
+    .photo:hover {
+        transform: scale(1.05);
+    }
+
+    .message {
+        font-size: 1.3rem;
+        max-width: 600px;
+        margin: auto;
+        line-height: 1.6;
+    }
+
+    button {
+        margin-top: 30px;
+        padding: 12px 25px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 25px;
+        background: white;
+        color: #ff4da6;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #ff4da6;
+        color: white;
+        transform: scale(1.1);
+    }
+
+    .hidden-message {
+        margin-top: 20px;
+        font-size: 1.2rem;
+        display: none;
+    }
+
+    /* FLOATING EMOJIS */
+    .floating {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+    }
+
+    .emoji {
+        position: absolute;
+        animation: float 5s linear infinite;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(100vh) scale(0); }
+        100% { transform: translateY(-10vh) scale(1); }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Happy Birthday PRINCESS 🎂🎉</h1>
+
+    <div class="photo-gallery">
+        <img src="1.jpg" class="photo">
+        <img src="2.jpg" class="photo">
+        <img src="3.jpg" class="photo">
+        <img src="4.jpg" class="photo">
+    </div>
+
+    <div class="message">
+        To My Bestest Best Friend 🌎💫 <br><br>
+        I hope this year brings you endless happiness, peace, success aur bohot saari reasons to smile.
+        <br><br>
+        All the love, care, success, and happiness
+        that you deserve (which is A LOT 😌💅).
+    </div>
+
+    <button onclick="showMessage()">PRESS IT 🎁</button>
+
+    <div class="hidden-message" id="secret">
+       A VERY VERY HAPPY BIRTHDAY TO THE SWEETEST NICEST INSPIRING CHARMING ADMIRABLE BEAUTIFUL GIRL. ENJOY YOUR DAY HAVE FUN AND BE HAPPY 😌
+    </div>
+</div>
+
+<div class="floating" id="floating"></div>
+
+<script>
+function showMessage() {
+    document.getElementById("secret").style.display = "block";
+}
+
+function createEmoji() {
+    const emoji = document.createElement("div");
+    emoji.classList.add("emoji");
+    emoji.innerHTML = Math.random() > 0.5 ? "🎂" : "🎉";
+    emoji.style.left = Math.random() * 100 + "vw";
+    emoji.style.fontSize = Math.random() * 20 + 20 + "px";
+    emoji.style.animationDuration = Math.random() * 3 + 3 + "s";
+    document.getElementById("floating").appendChild(emoji);
+
+    setTimeout(() => {
+        emoji.remove();
+    }, 5000);
+}
+
+setInterval(createEmoji, 400);
+</script>
+
+</body>
+</html>
